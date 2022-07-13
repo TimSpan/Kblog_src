@@ -1,0 +1,68 @@
+<template><div><h1 id="spa" tabindex="-1"><a class="header-anchor" href="#spa" aria-hidden="true">#</a> SPA</h1>
+<h2 id="spa单页应用" tabindex="-1"><a class="header-anchor" href="#spa单页应用" aria-hidden="true">#</a> SPA单页应用</h2>
+<p>单页Web应用（<em><strong>single page web application</strong></em>，SPA），就是只有一张Web页面的应用，是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。</p>
+<p>单页<a href="https://baike.baidu.com/item/Web/150564" target="_blank" rel="noopener noreferrer">Web<ExternalLinkIcon/></a>应用（single page web application，SPA），就是只有一张Web页面的应用。单页应用程序 (SPA) 是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。 [1] 浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由JavaScript来控制。因此，对单页应用来说模块化的开发和设计显得相当重要。</p>
+<p>速度：更好的用户体验，让用户在web app感受native app的速度和流畅，</p>
+<ul>
+<li>
+<p>MVVM：经典MVVM开发模式，前后端各负其责。</p>
+</li>
+<li>
+<p>ajax：重前端，业务逻辑全部在本地操作，数据都需要通过AJAX同步、提交。</p>
+</li>
+<li>
+<p>路由：在URL中采用#号来作为当前视图的地址,改变#号后的参数，页面并不会重载。</p>
+</li>
+</ul>
+<p><strong>单页应用：用vue写的项目是单页应用，刷新页面会请求一个HTML文件，切换页面的时候，并不会发起新的请求一个HTML文件，只是页面内容发生了变化</strong></p>
+<p>vue.js原理：JS感知URL变化，当URL发生变化后，使用JS动态把当前的页面内容清除掉，再把下一个页面的内容挂载到页面上。此时的路由就不是后端来做了，而是前端来做，判断页面到底显示哪一个组件，再把以前的组件清除掉使用新的组件。就不会每一次跳转都请求HTML文件。</p>
+<p>页面跳转不需要去做HTML文件的请求，节约HTTP请求发送的时延。</p>
+<p>SEO差？搜索引擎只认识HTML内容不认识JS内容。单页应用的渲染都是靠JavaScript渲染出来的。搜索引擎不好识别排名。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">多页应用模式MPA</th>
+<th style="text-align:center">多页应用模式SPA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用构成</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">跳转后公共资源重新加载?</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">用户体验</td>
+<td style="text-align:center">页面切换加载慢,不流畅,用户体验差,特别是移动设备上</td>
+<td style="text-align:center">页面片段的切换块,用户体验好,包括在移动设备上</td>
+</tr>
+<tr>
+<td style="text-align:center">能否实现转场动画</td>
+<td style="text-align:center">无法实现</td>
+<td style="text-align:center">容易实现(手机app动效)</td>
+</tr>
+<tr>
+<td style="text-align:center">页面间传递数据</td>
+<td style="text-align:center">依赖URL.cookie或localstorage,实现麻烦</td>
+<td style="text-align:center">在一个页面内,页面间传递数据很容易实现(父子之间船只,或vuex或storage等)</td>
+</tr>
+<tr>
+<td style="text-align:center">搜索引擎优化SEO</td>
+<td style="text-align:center">直接做</td>
+<td style="text-align:center">需要单独方案做,有点麻烦</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mpa多页应用" tabindex="-1"><a class="header-anchor" href="#mpa多页应用" aria-hidden="true">#</a> MPA多页应用</h2>
+<p><strong>多页面应用：每次页面跳转，后台都会返回一个新的HTML文档，就是多页面应用。</strong></p>
+<p>在以往传统开发的应用（网站）大多都是多页面应用，路由由后端来写</p>
+<p>返回HTML，优点：首屏时间快，SEO效果好，缺点是页面切换慢。访问页面，服务器只需要返回一个HTML文件，这个过程就经历了一个HTTP请求，请求响应回来，页面就能被展示出来。</p>
+<p>SEO（搜索引擎排名）效果好.搜索引擎能识别HTML的内容，根据内容进行排名。</p>
+<p>页面切换慢：每一次切换页面都需要发起一个HTTP请求，假设网络较慢就会出现卡顿情况。</p>
+</div></template>
